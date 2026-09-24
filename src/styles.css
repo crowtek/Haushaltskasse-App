@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+
+  --color-bg: #eef3f0;
+  --color-bg-deep: #e4ebe7;
+  --color-surface: #ffffff;
+  --color-surface-muted: #e8eeea;
+  --color-fg: #143028;
+  --color-fg-muted: #6d7f75;
+  --color-fg-subtle: #8b9b93;
+  --color-primary: #0c6b4c;
+  --color-primary-fg: #ffffff;
+  --color-primary-soft: #e7f4ee;
+  --color-primary-hover: #0a5c41;
+  --color-income: #0c6b4c;
+  --color-expense: #e2554a;
+  --color-border: #d7e0db;
+  --color-border-strong: #c3d0c9;
+  --color-ring: #0c6b4c;
+  --color-tip: #eaf6ef;
+  --color-nav: #ffffff;
+
+  --color-cat-food: #1aa36a;
+  --color-cat-home: #3d7fe0;
+  --color-cat-leisure: #e9a01c;
+  --color-cat-transport: #e4453a;
+  --color-cat-health: #2a9b8f;
+  --color-cat-other: #8a9a92;
+  --color-cat-income: #0c6b4c;
+
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-2xl: 28px;
+  --radius-3xl: 32px;
+
+  --shadow-card: 0 1px 2px rgb(20 48 40 / 0.04), 0 8px 24px rgb(20 48 40 / 0.05);
+  --shadow-nav: 0 -8px 30px rgb(20 48 40 / 0.06);
+  --shadow-float: 0 10px 40px rgb(20 48 40 / 0.12);
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html,
+  body,
+  #app {
+    min-height: 100dvh;
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    letter-spacing: -0.011em;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+    letter-spacing: -0.03em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.bottom-nav {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.enter {
+  animation: fade-up 420ms var(--ease-out) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .enter {
+    animation: none;
+  }
+}
